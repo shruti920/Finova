@@ -1,0 +1,82 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id           String        @id @default(cuid())
+  name         String?
+  email        String        @unique
+  password     String
+  transactions Transaction[]
+  budgets      Budget[]
+  goals        Goal[]
+  notifications Notification[]
+  receipts      Receipt[]
+}
+
+model Transaction {
+  id        String   @id @default(cuid())
+  amount    Float
+  type      String
+  category  String
+  note      String?
+  createdAt DateTime @default(now())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
+}
+
+model Budget {
+  id        String   @id @default(cuid())
+  category  String
+  limit     Float
+  createdAt DateTime @default(now())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
+}
+
+model Goal {
+  id           String  @id @default(cuid())
+  title        String
+  targetAmount Float
+  savedAmount  Float   @default(0)
+  deadline     String?
+
+  userId String
+  user   User   @relation(fields: [userId], references: [id])
+
+  createdAt DateTime @default(now())
+}
+
+model Notification {
+
+  id        String   @id @default(cuid())
+
+  title     String
+  message   String
+
+  type      String
+  read      Boolean  @default(false)
+
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
+
+  createdAt DateTime @default(now())
+}
+
+model Receipt {
+  id         String   @id @default(cuid())
+  imageUrl   String
+  merchant   String
+  amount     Float
+  category   String
+  note       String?
+  createdAt  DateTime @default(now())
+
+  userId String
+  user   User @relation(fields: [userId], references: [id])
+}
