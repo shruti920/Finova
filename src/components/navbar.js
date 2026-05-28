@@ -5,8 +5,6 @@ import { useRouter } from "next/navigation"
 import { useSession } from "next-auth/react"
 import { Bell, Search, Sparkles, X, Command } from "lucide-react"
 import NotificationBell from "./notification-bell"
-import NotificationDropdown
-from "@/components/notification-dropdown"
 
 const today = new Date().toLocaleDateString("en-IN", {
   weekday: "short", day: "numeric", month: "short",
@@ -233,7 +231,6 @@ export default function Navbar({ sidebarOpen = true, onToggleSidebar }) {
 
           {/* ── Notification bell ── */}
           <NotificationBell />
-          <NotificationDropdown />
 
           {/* ── Avatar ── */}
           <div className="relative group cursor-pointer">

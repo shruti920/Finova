@@ -366,7 +366,7 @@ export default function DashboardClient({ user }) {
             tracking-[0.12em]
             mb-3
           ">
-            AI Financial Intelligence
+            Financial Intelligence
           </p>
 
           <div className="
@@ -450,6 +450,11 @@ export default function DashboardClient({ user }) {
           </div>
 
         </div>
+
+        <Aiinsights
+              transactions={
+                transactions}
+            />
 
         {/* QUICK STATS */}
         <div className="
@@ -659,10 +664,7 @@ export default function DashboardClient({ user }) {
 
           </div>
 
-            <Aiinsights
-              transactions={
-                transactions}
-            />
+  
 
            {/* GOALS */}
             <div
