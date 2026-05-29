@@ -36,7 +36,7 @@ const fadeUp = {
 }
 
 const proofItems = [
-  ["$8,420", "monthly inflow"],
+  ["Rs.8,420", "monthly inflow"],
   ["18%", "spend trimmed"],
   ["4 goals", "ahead of pace"],
 ]
@@ -47,19 +47,19 @@ const transactions = [
   {
     title: "Salary landed",
     meta: "Direct deposit",
-    amount: "+$4,200",
+    amount: "+Rs.4,200",
     icon: Wallet,
   },
   {
     title: "Food budget",
     meta: "12 days left",
-    amount: "$418 left",
+    amount: "Rs.418 left",
     icon: PieChart,
   },
   {
     title: "Weekend leak",
     meta: "Subscriptions",
-    amount: "-$42",
+    amount: "-Rs.42",
     icon: Activity,
   },
 ]
@@ -142,7 +142,7 @@ export default function LandingPage() {
 
             <motion.div className="hero-actions" variants={fadeUp}>
               <motion.div whileHover={{ y: -2 }} whileTap={{ scale: 0.98 }}>
-                <Link className="button button-primary" href="/register">
+                <Link className="button button-primary" href="/login">
                   Start tracking
                   <ArrowRight aria-hidden="true" />
                 </Link>
@@ -194,9 +194,9 @@ export default function LandingPage() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.62, duration: 0.5 }}
                   >
-                    $12,840
+                    Rs.12,840
                   </motion.p>
-                  <p className="balance-note">+$1,240 vs last month</p>
+                  <p className="balance-note">+Rs.1,240 vs last month</p>
                 </div>
 
                 <div className="mini-bars" aria-hidden="true">
@@ -313,6 +313,68 @@ export default function LandingPage() {
             )
           })}
         </motion.section>
+
+        <footer className="footer-section" aria-label="Footer">
+          <div className="footer-content">
+            <div className="footer-grid">
+              {/* Brand Section */}
+              <div className="footer-brand">
+                <div className="footer-logo">
+                  <DollarSign aria-hidden="true" size={24} strokeWidth={3} />
+                  <span>Finova</span>
+                </div>
+                <p className="footer-tagline">
+                  Money in motion. Your Gen Z financial command center.
+                </p>
+              </div>
+
+              {/* Product Links */}
+              <div className="footer-column">
+                <h3>Product</h3>
+                <ul>
+                  <li><a href="#preview">Dashboard</a></li>
+                  <li><a href="#signals">Features</a></li>
+                  <li><a href="/login">Get Started</a></li>
+                  <li><a href="/register">Sign Up</a></li>
+                </ul>
+              </div>
+
+              {/* Resources Links */}
+              <div className="footer-column">
+                <h3>Resources</h3>
+                <ul>
+                  <li><Link href="/docs">Documentation</Link></li>
+                  <li><Link href="/blog">Blog</Link></li>
+                  <li><Link href="/faq">FAQ</Link></li>
+                  <li><Link href="/support">Support</Link></li>
+                </ul>
+              </div>
+
+              {/* Company Links */}
+              <div className="footer-column">
+                <h3>Company</h3>
+                <ul>
+                  <li><Link href="/about">About</Link></li>
+                  <li><Link href="/privacy">Privacy</Link></li>
+                  <li><Link href="/terms">Terms</Link></li>
+                  <li><Link href="/contact">Contact</Link></li>
+                </ul>
+              </div>
+            </div>
+
+            {/* Footer Bottom */}
+            <div className="footer-bottom">
+              <p className="footer-copyright">
+                © 2026 Finova. All rights reserved.
+              </p>
+              <div className="footer-socials">
+                <a href="#" aria-label="Twitter" className="social-link">𝕏</a>
+                <a href="#" aria-label="GitHub" className="social-link">⚙</a>
+                <a href="#" aria-label="Discord" className="social-link">◊</a>
+              </div>
+            </div>
+          </div>
+        </footer>
       </div>
     </main>
   )

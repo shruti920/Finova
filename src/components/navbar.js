@@ -128,7 +128,7 @@ export default function Navbar({ sidebarOpen = true, onToggleSidebar }) {
               flex items-center justify-center
               hover:border-[#C8F135]/30
               transition-all duration-200
-              hidden md:flex
+              md:hidden
             "
           >
             <div className="space-y-1">
